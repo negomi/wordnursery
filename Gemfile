@@ -36,3 +36,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+# Gems for testing
+group :development, :test do
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "nyan-cat-formatter"
+  gem "pry"
+  gem "pry-rails"
+end
