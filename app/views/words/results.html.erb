@@ -1,0 +1,7 @@
+<h1><%= @word %></h1>
+<h2><%= @pronunciation %></h2>
+<% @definitions.each do |hash| %>
+	<h3><%= hash[:part_of_speech] %></h3>
+	<p><%= hash[:definition] %></p>
+<% end %>
+<p><%= @attribution %></p>

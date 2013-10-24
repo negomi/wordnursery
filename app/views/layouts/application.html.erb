@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WordNursery</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>WordNursery</title>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand:700|Raleway:400,700' rel='stylesheet' type='text/css'>
+	<%= stylesheet_link_tag    "normalize", "foundation", "application", :media => "all" %>
+	<%= javascript_include_tag "foundation", "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class="top-bar">
+		<ul class="title-area">
+			<section class="top-bar-section">
+				<ul class="left">
+					<li class="name"><a href="/">wordnursery</a></li>
+				</ul>
+			</section>
+		</ul>
+		<section class="top-bar-section">
+			<ul class="right">
+				<% if current_user %>
+				Logged in as <%= current_user.email %>.
+				<li><%= link_to "log out", log_out_path %></li>
+				<% else %>
+				<li><%= link_to "sign up", sign_up_path %></li>
+				<li><%= link_to "log in", log_in_path %></li>
+				<% end %>
+			</ul>
+		</section>
+	</nav>
+	<div id="user_nav">
 
-<%= yield %>
+	</div>
+
+	<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+
+	<%= yield %>
 
 </body>
 </html>

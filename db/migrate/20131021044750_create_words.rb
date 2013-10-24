@@ -1,7 +1,7 @@
 class CreateWords < ActiveRecord::Migration
   def change
     create_table :words do |t|
-      t.string :word
+      t.string :name
       t.text :definition
       t.string :pronunciation
       t.text :example

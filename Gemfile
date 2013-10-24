@@ -17,12 +17,15 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
+  gem 'zurb-foundation', '~> 4.0.0'
 end
 
 gem 'jquery-rails'
+gem 'devise'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -45,6 +48,7 @@ group :development, :test do
   gem "nyan-cat-formatter"
   gem "pry"
   gem "pry-rails"
+  gem 'quiet_assets'
 end
 
 # Gems for production
