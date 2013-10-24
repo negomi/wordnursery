@@ -9,28 +9,21 @@
 </head>
 <body>
 	<nav class="top-bar">
-		<ul class="title-area">
-			<section class="top-bar-section">
-				<ul class="left">
-					<li class="name"><a href="/">wordnursery</a></li>
-				</ul>
-			</section>
-		</ul>
-		<section class="top-bar-section">
+		<section class="logo">
+			<ul class="left">
+				<li><a href="/"><span class="logo1">word</span><span class="logo2">nursery</span></a></li>
+			</ul>
 			<ul class="right">
 
 			</ul>
 		</section>
 	</nav>
-	<div id="user_nav">
-
+	<div class="row">
+		<div class="small-12 large-centered columns container"><%= yield %></div>
 	</div>
-
-	<% flash.each do |name, msg| %>
-	<%= content_tag :div, msg, :id => "flash_#{name}" %>
-	<% end %>
-
-	<%= yield %>
-
 </body>
 </html>
+
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>

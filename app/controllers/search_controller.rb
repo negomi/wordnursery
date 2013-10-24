@@ -34,7 +34,7 @@ class SearchController < ApplicationController
   end
 
   def results
-    if params[:searchtype] == "Search"
+    if params[:searchtype] == "»"
       if params[:name] == ""
         @blank_error = "Well duh, you can't search for nothing."
       else

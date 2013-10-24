@@ -12,6 +12,101 @@
  *= require_tree .
  */
 
-.name {
-	font-family: 'Quicksand', sans-serif;
+/* Layout */
+
+body {
+	background-color:#eee;
+	background-image:url('geometry.png');
 }
+
+.top-bar {
+	background: rgb(255,255,255);
+	background: rgba(255,255,255,0.8);
+	height: 85px;
+	margin-bottom: 80px;
+}
+
+.container {
+	/*background: rgb(253,173,191);
+	background: rgba(253,173,191,0.6);*/
+	background: rgb(186,202,255);
+	background: rgba(186,202,255,0.6);
+	border-radius: 30px;
+	margin-bottom: 80px;
+	padding: 50px;
+	text-align: center;
+}
+
+
+/* Text */
+
+body, h1, h2, h3, p {
+	font-family: 'Raleway', sans-serif;
+	color: #474747;
+}
+
+.logo {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 3em;
+	padding-left: 1%;
+}
+
+.logo1 {
+	color: #bacaff;
+}
+
+.logo2 {
+	color: #fdadbf;
+}
+
+.intro {
+	font-size: 1.1em;
+	padding: 50px 0 40px;
+}
+
+.word {
+	font-size: 500%;
+	margin-top: 0;
+}
+
+.smallprint {
+	font-size: 0.7em;
+	font-weight: 700;
+	padding-top: 30px;
+}
+
+
+/* Forms */
+
+input[type="text"],
+input[type="password"],
+input[type="text"]:focus,
+input[type="password"]:focus {
+	border: none;
+	box-shadow: none;
+	display: inline-block;
+	height: 50px;
+	width: 50%;
+}
+
+.button {
+	background-color: rgb(128,128,128);
+	border: none;
+	border-radius: 10px;
+	box-shadow: none;
+	height: 50px;
+}
+
+.button:hover {
+	background-color: rgb(128,128,128);
+	background-color: rgba(128,128,128,0.7);
+	border: none;
+	border-radius: 10px;
+	box-shadow: none;
+}
+
+.go, .go:hover {
+	border-radius: 0;
+	margin-left: -4px;
+}
+
