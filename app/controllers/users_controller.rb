@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
   end
 
@@ -6,16 +8,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
   end
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      redirect_to root_url, :notice => "You're signed up!"
-    else
-      render "new"
-    end
+    User.create(params[:user])
   end
 
   def edit
@@ -24,6 +20,6 @@ class UsersController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
   end
 end

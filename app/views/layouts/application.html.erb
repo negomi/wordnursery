@@ -18,13 +18,7 @@
 		</ul>
 		<section class="top-bar-section">
 			<ul class="right">
-				<% if current_user %>
-				Logged in as <%= current_user.email %>.
-				<li><%= link_to "log out", log_out_path %></li>
-				<% else %>
-				<li><%= link_to "sign up", sign_up_path %></li>
-				<li><%= link_to "log in", log_in_path %></li>
-				<% end %>
+
 			</ul>
 		</section>
 	</nav>
