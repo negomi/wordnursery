@@ -24,6 +24,7 @@ body {
 	background: rgba(255,255,255,0.8);
 	height: 85px;
 	margin-bottom: 80px;
+	box-shadow: 0 1px 3px #eee;
 }
 
 .container {
