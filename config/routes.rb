@@ -7,19 +7,19 @@ Wordnursery::Application.routes.draw do
 
   get "home/index"
 
-  get "lists/index"
+  # get "lists/index"
 
-  get "lists/show"
+  # get "lists/show"
 
-  get "lists/new"
+  # get "lists/new"
 
-  get "lists/create"
+  # get "lists/create"
 
-  get "lists/edit"
+  # get "lists/edit"
 
-  get "lists/update"
+  # get "lists/update"
 
-  get "lists/delete"
+  # get "lists/delete"
 
   get "words/index"
 

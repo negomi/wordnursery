@@ -1,17 +1,19 @@
 <% if @blank_error %>
 	<p><%= @blank_error %></p>
 <% else %>
-	<h1 class="word"><%= @word %></h1>
-	<h2><%= @pronunciation %></h2>
-	<% if @not_found_error %>
-		<p><%= @not_found_error %></p>
-	<% else %>
-		<% @definitions.each do |result| %>
-			<h3><%= result[:part_of_speech] %></h3>
-			<p><%= result[:definition] %></p>
+	<section class="results">
+		<h1 class="word"><%= @word %></h1>
+		<h2><%= @pronunciation %></h2>
+		<% if @not_found_error %>
+			<p><%= @not_found_error %></p>
+		<% else %>
+			<% @definitions.each do |result| %>
+				<h3><%= result[:part_of_speech] %></h3>
+				<p><%= result[:definition] %></p>
+			<% end %>
+			<p class="smallprint"><%= @attribution %></p>
 		<% end %>
-		<p class="smallprint"><%= @attribution %></p>
-	<% end %>
+	</div>
 <% end %>
 
 
