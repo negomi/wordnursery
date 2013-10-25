@@ -53,7 +53,6 @@ group :development, :test do
 end
 
 # Gems for production
-group :production do
-  gem 'pg'
-
-end
+# group :production do
+#   gem 'pg'
+# end
