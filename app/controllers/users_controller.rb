@@ -12,6 +12,9 @@ class UsersController < ApplicationController
 
   def create
     User.create(params[:user])
+    User.list.create(name: "kindergarten")
+    User.list.create(name: "school")
+    User.list.create(name: "graduated")
   end
 
   def edit

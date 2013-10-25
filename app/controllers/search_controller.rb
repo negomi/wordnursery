@@ -36,11 +36,11 @@ class SearchController < ApplicationController
   def results
     if params[:searchtype] == "»"
       if params[:name] == ""
-        @blank_error = "Well duh, you can't search for nothing."
+        @blank_error = "You can't search for nothing."
       else
         @word = get_word
       end
-    elsif params[:searchtype] == "Try a random word"
+    elsif params[:searchtype] == "Randomize!"
       @word = get_random_word
     end
     if @word
