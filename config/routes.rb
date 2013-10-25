@@ -3,7 +3,7 @@ Wordnursery::Application.routes.draw do
 
   root :to => "home#index"
 
-  get "/search", :to => "search#results"
+  get "/search" => "search#results"
 
   get "home/index"
 
@@ -27,7 +27,7 @@ Wordnursery::Application.routes.draw do
 
   get "words/new"
 
-  get "words/create"
+  post "/words" => "words#create"
 
   get "words/edit"
 

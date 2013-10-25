@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023234556) do
+ActiveRecord::Schema.define(:version => 20131025022944) do
+
+  create_table "definitions", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "lists", :force => true do |t|
     t.string   "name"
@@ -49,9 +54,9 @@ ActiveRecord::Schema.define(:version => 20131023234556) do
     t.string   "name"
     t.text     "definition"
     t.string   "pronunciation"
-    t.text     "example"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "attribution"
   end
 
 end

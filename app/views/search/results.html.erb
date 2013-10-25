@@ -2,6 +2,12 @@
 	<p><%= @blank_error %></p>
 <% else %>
 	<section class="results">
+		<form class="hidden" action="/words" method="post">
+			<input type="hidden" value="<%= @word %>" name="word">
+			<input type="hidden" value="<%= @definitions %>" name="definitions">
+			<input type="hidden" value="<%= @attribution %>" name="attribution">">
+			<input class="button" name="store" type="submit" value="Add to database">
+		</form>
 		<h1 class="word"><%= @word %></h1>
 		<h2><%= @pronunciation %></h2>
 		<% if @not_found_error %>
