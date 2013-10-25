@@ -194,7 +194,7 @@ DEPENDENCIES
   devise
   jquery-rails
   nyan-cat-formatter
-  pg (= 0.15.1)
+  pg
   pry
   pry-rails
   quiet_assets
