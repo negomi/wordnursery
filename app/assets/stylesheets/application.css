@@ -20,39 +20,38 @@ body {
 }
 
 .top-bar {
-	background: rgb(255,255,255);
-	background: rgba(255,255,255,0.8);
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.7);
 	height: 70px;
 	margin-bottom: 80px;
-	box-shadow: 0 1px 3px #eee;
 }
 
 .container {
-	background: rgb(255,255,255);
-	background: rgba(255,255,255,0.8);
-/*	border: 2px solid #eee;
-*/	border-radius: 30px;
-	height: 500px;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 30px;
 	margin-bottom: 80px;
 	padding: 50px;
 	text-align: center;
 }
 
-.definitions {
-	max-height: 150px;
-	overflow: scroll;
-}
-
-
 /* Text */
 
 body, h2, h3, p {
 	font-family: 'Raleway', sans-serif;
-	color: gray;
+	color: white;
 }
 
 h1 {
 	color: #fdadbf;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: rgb(204,204,204);
 }
 
 .logo {
@@ -80,7 +79,7 @@ h1 {
 	text-align: left;
 }
 
-.word {
+.title {
 	font-size: 5em;
 	line-height: 1em;
 	margin-top: 0;
@@ -89,6 +88,7 @@ h1 {
 .smallprint {
 	font-size: 0.7em;
 	font-weight: 700;
+	margin-bottom: 0;
 	padding-top: 30px;
 }
 
@@ -102,8 +102,10 @@ form {
 	width: 50%;
 }
 
+input[type="email"],
 input[type="text"],
 input[type="password"],
+input[type="email"]:focus,
 input[type="text"]:focus,
 input[type="password"]:focus {
 	border: none;
@@ -113,8 +115,17 @@ input[type="password"]:focus {
 	width: 70%;
 }
 
+.hidden {
+	background: none;
+	display: inline;
+	position: relative;
+}
+
+
+/* Buttons */
+
 .button {
-	background-color: rgb(128,128,128);
+	background-color: rgb(78,78,78);
 	border: none;
 	border-radius: 10px;
 	box-shadow: none;
@@ -123,8 +134,7 @@ input[type="password"]:focus {
 }
 
 .button:hover {
-	background-color: rgb(128,128,128);
-	background-color: rgba(128,128,128,0.7);
+	background-color: rgb(62,62,62);
 	border: none;
 	border-radius: 10px;
 	box-shadow: none;
@@ -135,18 +145,34 @@ input[type="password"]:focus {
 	margin-left: -4px;
 }
 
-.hidden {
-	background: none;
-	display: inline;
-	position: relative;
-}
-
-.nursery .button {
-	color: rgb(128,128,128);
+.button-blue {
+	color: rgb(78,78,78);
 	background-color: rgb(186,202,255);
 }
 
-.nursery .button:hover {
-	background-color: rgb(186,202,255);
-	background-color: rgba(186,202,255,0.7);
+.button-blue:hover {
+	color: rgb(78,78,78);
+	background-color: rgb(167,181,229);
+}
+
+.button-white {
+	color: rgb(78,78,78);
+	background-color: white;
+}
+
+.button-white:hover {
+	color: rgb(78,78,78);
+	background-color: rgb(204,204,204);
+}
+
+.top-bar .button {
+	font-size: 0.75em;
+	height: 1.5em;
+	line-height: 1.5em;
+	margin: 0 20px;
+	top: 0;
+}
+
+.top-bar .right a {
+	font-size: 0.75em;
 }

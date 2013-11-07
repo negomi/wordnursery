@@ -46,8 +46,11 @@ group :development, :test do
   gem 'sqlite3'
   gem "capybara"
   gem "nyan-cat-formatter"
-  gem "pry"
-  gem "pry-rails"
+#  gem "pry"
+#  gem "pry-rails"
+  gem 'byebug'
+  gem 'pry-byebug'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'quiet_assets'
   gem 'rails_12factor', '0.0.2'
   gem 'rails-erd'
