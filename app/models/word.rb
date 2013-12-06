@@ -1,5 +1,5 @@
 class Word < ActiveRecord::Base
-  attr_accessible :definition, :attribution, :pronunciation, :name
+  attr_accessible :name, :pronunciation, :definition, :attribution
   serialize :definition
   validate :entry_exists
   # validates :name, presence: true

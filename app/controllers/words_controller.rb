@@ -9,15 +9,14 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = params[:word]
-    @definitions = params[:definitions]
-    @attribution = params[:attribution]
     user = current_user
-    list = user.lists.find(params[:list_id])
-    user.list.words.create(name: @word, definition: @definitions, attribution: @attribution)
-    # Word.create(name: @word, definition: @definitions, attribution: @attribution)
-    # FIXME Redirect to user's lists
-    redirect_to root_path
+    user.lists[0].words.create(
+      name: params[:word],
+      pronunciation: params[:pronunciation],
+      definition: params[:definitions],
+      attribution: params[:attribution]
+      )
+    redirect_to user_lists_path(user.id)
   end
 
   def edit
@@ -28,5 +27,4 @@ class WordsController < ApplicationController
 
   def destroy
   end
-
 end
