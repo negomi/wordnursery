@@ -1,5 +1,5 @@
 Wordnursery::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users"}
 
   root to: "home#index"
 
@@ -12,5 +12,4 @@ Wordnursery::Application.routes.draw do
   get "/search" => "search#index"
 
   post "/words" => "words#create"
-
 end
