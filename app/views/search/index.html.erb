@@ -6,14 +6,23 @@
 <% else %>
 	<section class="results">
 		<div class="results-header">
+
 			<!-- FIXME Use form_for -->
+			<%# form_for Word.new, html: { class: "hidden" } do |f| -%>
+				<%# f.hidden_field :name, value: "name" %>
+				<%# f.hidden_field :pronunciation, value: "pronunciation" %>
+				<%# f.hidden_field :definitions, value: "definition" %>
+				<%# f.hidden_field :attribution, value: "attribution" %>
+				<%# f.submit name: "store", class: "button button-blue", value: "Add to Nursery" %>
+			<%# end -%>
+
 			<form class="hidden" action="/words" method="post">
 				<input type="hidden" value="<%= @word.name %>" name="word">
 				<input type="hidden" value="<%= @word.definition %>" name="definitions">
 				<input type="hidden" value="<%= @word.attribution %>" name="attribution">
 				<input class="button button-blue" name="store" type="submit" value="Add to Nursery">
 			</form>
-			<a href="/"><button class="button button-white">New search</button></a>
+ 			<%= link_to "New search", root_path, class: "button button-white" %>
 			<form class="hidden" action="/search" method="get">
 				<input class="button button-white" name="searchtype" type="submit" value="Randomize!">
 			</form>
