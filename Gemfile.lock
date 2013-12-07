@@ -1,3 +1,20 @@
+GIT
+  remote: git://github.com/nixme/jazz_hands.git
+  revision: 5e4b48f145883ecb14b55bf04eacc28ac9662676
+  branch: bring-your-own-debugger
+  specs:
+    jazz_hands (0.5.2)
+      awesome_print (~> 1.2)
+      coolline (>= 0.4.2)
+      hirb (~> 0.7.1)
+      pry (~> 0.9.12)
+      pry-doc (~> 0.4.6)
+      pry-git (~> 0.2.3)
+      pry-rails (~> 0.3.2)
+      pry-remote (>= 0.1.7)
+      pry-stack_explorer (~> 0.4.9)
+      railties (>= 3.0, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,7 +48,10 @@ GEM
     addressable (2.3.5)
     arel (3.0.2)
     atomic (1.1.14)
+    awesome_print (1.2.0)
     bcrypt-ruby (3.1.2)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     byebug (2.3.1)
       columnize (~> 0.3.6)
@@ -59,6 +79,8 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    coolline (0.4.2)
+    debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
@@ -67,6 +89,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.4)
+    diffy (3.0.1)
     erubis (2.7.0)
     ethon (0.6.1)
       ffi (>= 1.3.0)
@@ -74,7 +97,12 @@ GEM
     execjs (2.0.2)
     ffi (1.9.0)
     fssm (0.2.10)
+    grit (2.5.0)
+      diff-lcs (~> 1.1)
+      mime-types (~> 1.15)
+      posix-spawn (~> 0.3.6)
     hike (1.2.3)
+    hirb (0.7.1)
     htmlentities (4.3.1)
     i18n (0.6.5)
     journey (1.0.4)
@@ -96,6 +124,7 @@ GEM
     orm_adapter (0.4.0)
     pg (0.17.0)
     polyglot (0.3.3)
+    posix-spawn (0.3.8)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -103,6 +132,21 @@ GEM
     pry-byebug (1.2.0)
       byebug (~> 2.2)
       pry (~> 0.9.12)
+    pry-doc (0.4.6)
+      pry (>= 0.9)
+      yard (>= 0.8)
+    pry-git (0.2.3)
+      diffy
+      grit
+      pry (>= 0.9.8)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
+    pry-remote (0.1.7)
+      pry (~> 0.9)
+      slop (~> 3.0)
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -194,6 +238,7 @@ GEM
       typhoeus (>= 0.2.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
+    yard (0.8.7.3)
     zurb-foundation (4.0.9)
       sass (>= 3.2.0)
 
@@ -206,6 +251,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   devise
+  jazz_hands!
   jquery-rails
   nyan-cat-formatter
   pg
