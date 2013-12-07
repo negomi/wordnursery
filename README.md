@@ -1,3 +1,5 @@
 WordNursery
 ===================
-A Rails app that lets you search for words via the Wordnik API, then store them in different lists depending on how well you know them.
+A Rails app that lets you search for new words, learn their meaning, then store them until you know them.
+
+Uses the Wordnik API.
