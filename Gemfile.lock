@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/frontfoot/zepto-rails.git
+  revision: ca71163613f201ddfca1189d2173a1e2f9e72d73
+  specs:
+    zepto-rails (0.8.0)
+      rails (>= 3.1.0)
+
+GIT
   remote: git://github.com/nixme/jazz_hands.git
   revision: 5e4b48f145883ecb14b55bf04eacc28ac9662676
   branch: bring-your-own-debugger
@@ -106,9 +113,6 @@ GEM
     htmlentities (4.3.1)
     i18n (0.6.5)
     journey (1.0.4)
-    jquery-rails (3.0.4)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -252,7 +256,6 @@ DEPENDENCIES
   compass-rails
   devise
   jazz_hands!
-  jquery-rails
   nyan-cat-formatter
   pg
   pry-byebug
@@ -266,4 +269,5 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.0.3)
   wordnik
+  zepto-rails!
   zurb-foundation
