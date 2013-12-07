@@ -6,6 +6,8 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'wordnik'
+gem 'jquery-rails'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,9 +22,6 @@ group :assets do
   gem 'compass-rails'
   gem 'zurb-foundation', '~> 4.0.0'
 end
-
-gem 'jquery-rails'
-gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
