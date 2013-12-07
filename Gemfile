@@ -20,7 +20,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
-  gem 'zurb-foundation', '~> 4.0.0'
+  gem 'zurb-foundation'
 end
 
 # To use ActiveModel has_secure_password
