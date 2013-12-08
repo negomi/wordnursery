@@ -1,5 +1,0 @@
-pkg/*
-*.gem
-.bundle
-USAGE.md
-spec/vcr/*
