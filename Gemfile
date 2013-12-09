@@ -41,12 +41,13 @@ end
 
 # Gems for testing
 group :development, :test do
-  gem "rspec-rails"
-  gem "shoulda-matchers"
-  gem "capybara"
-  gem "nyan-cat-formatter"
-#  gem "pry"
-#  gem "pry-rails"
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'nyan-cat-formatter'
+  gem 'factory_girl'
+#  gem 'pry'
+#  gem 'pry-rails'
   gem 'byebug'
   gem 'pry-byebug'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
