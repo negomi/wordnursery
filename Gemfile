@@ -7,6 +7,7 @@ gem 'rails', '3.2.14'
 
 gem 'wordnik'
 gem 'devise'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,7 +43,6 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem "shoulda-matchers"
-  gem 'sqlite3'
   gem "capybara"
   gem "nyan-cat-formatter"
 #  gem "pry"
@@ -57,5 +57,5 @@ end
 
 # Gems for production
 group :production do
-  gem 'pg'
+
 end
