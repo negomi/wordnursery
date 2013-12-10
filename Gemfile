@@ -57,6 +57,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rails_12factor', '0.0.2'
   gem 'rails-erd'
+  gem 'rb-fsevent'
 end
 
 # Gems for production

@@ -8,7 +8,5 @@ describe "Pages" do
       visit root_path
       expect(page).to have_content('wordnursery')
     end
-
-
   end
 end
