@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'nyan-cat-formatter'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'growl'
 #  gem 'pry'
