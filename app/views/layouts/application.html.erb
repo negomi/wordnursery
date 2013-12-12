@@ -32,8 +32,9 @@
   			<ul class="right">
   				<% if user_signed_in? %>
   				<li>
+            <%= link_to "my nursery", user_lists_path(current_user.id) %>
   					<%= link_to "log out", destroy_user_session_path, :method => :delete %>
-  					<%= link_to 'account', edit_user_registration_path %>
+  					<%# link_to 'account', edit_user_registration_path %>
   				</li>
   				<% else %>
   				<li>
