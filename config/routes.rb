@@ -15,5 +15,5 @@ Wordnursery::Application.routes.draw do
 
   get "/search" => "search#index"
 
-  post "/words" => "words#create"
+  post "/change" => "words#change_word_list"
 end
