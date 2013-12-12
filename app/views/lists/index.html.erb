@@ -1,11 +1,38 @@
 <h1>my nursery</h1>
 <% @lists.each do |list| %>
 <h2><%= list.name %></h2>
+<div class="<%= list.name %>" id="<%= list.id %>">
     <% list.words.each do |word| %>
         <table>
             <tr>
-                <td><%= word.name %></td>
-                <td>icons</td>
+                <!-- Display word -->
+                <td id="<%= word.name %>">
+                    <%= word.name %>
+                    <div id="<%= word.name %>_definitions" style="display:none">
+                        <%= word.pronunciation %>
+                        <% word.definition.each do |result| %>
+                            <h3><%= result[:part_of_speech] %></h3>
+                            <p><%= result[:definition] %></p>
+                        <% end %>
+                        <p class="smallprint"><%= word.attribution %></p>
+                    </div>
+                </td>
+                <!-- Display radio buttons to change its list -->
+                <td>
+                    <form id="<%= word.name %>_form_<%= list.id %>">
+                        <fieldset>
+                        <legend>List</legend>
+                        <input type="radio" name="list" id="<%= word.id %>_k" value="kindergarten" />
+                        <label for="size_1">Kindergarten</label>
+
+                        <input type="radio" name="list" id="<%= word.id %>_s" value="school" />
+                        <label for="size_2">School</label>
+
+                        <input type="radio" name="list" id="<%= word.id %>_g" value="graduated" />
+                        <label for="size_3">Graduated</label>
+                        </fieldset>
+                    </form>
+                </td>
             </tr>
         </table>
     <% end %>

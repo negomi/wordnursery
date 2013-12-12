@@ -18,15 +18,19 @@ class WordsController < ApplicationController
     redirect_to user_lists_path(current_user.id)
   end
 
-  def change_word_list
-
-
-  end
-
   def edit
   end
 
   def update
+  end
+
+  def update_word_list
+    @oldList = List.find(params[:old_list_id].to_i)
+    @newList = List.find(params[:new_list_id].to_i)
+    word = Word.find(params[:word_id].to_i)
+    @oldList.words.delete(word)
+    @newList.words << word
+    render :json => @newList
   end
 
   def destroy

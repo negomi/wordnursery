@@ -7,6 +7,8 @@ Wordnursery::Application.routes.draw do
 
   root to: "home#index"
 
+  post "/words/update_word_list" => "words#update_word_list"
+
   resources :words
 
   resources :users do
@@ -15,5 +17,4 @@ Wordnursery::Application.routes.draw do
 
   get "/search" => "search#index"
 
-  post "/change" => "words#change_word_list"
 end
