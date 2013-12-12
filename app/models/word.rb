@@ -1,8 +1,8 @@
 class Word < ActiveRecord::Base
   attr_accessible :name, :pronunciation, :definition, :attribution
   serialize :definition
+  # Callback method to verify presence
   validate :entry_exists
-  # validates :name, presence: true
   after_validation :lookup_word
 
   has_and_belongs_to_many :lists
