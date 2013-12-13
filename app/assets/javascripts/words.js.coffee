@@ -6,19 +6,27 @@ $(document).ready ->
     # $('#"<%= word.name %>"').click ->
     #     $('#"<%= word.name %>"_definitions').toggle
 
-    changeList = (oldListId, newListId, wordId) ->
-        $.ajax(
-            url: '/words/update_word_list',
-            type: 'POST',
+    changeList = (oldListId, newListId, wordId, callback) ->
+        $.ajax '/words/update_word_list',
+            type: 'POST'
+            dataType: 'json'
             data: {old_list_id: oldListId, new_list_id: newListId, word_id: wordId}
-            ).done (data) ->
-                console.log data
+            error: (jqXHR, textStatus, errorThrown) ->
+                alert "AJAX error: #{textStatus}"
+            success: (data, textStatus, jqXHR) ->
+                callback()
 
     $('form input[name="list"]').click (event) ->
-        idArr = this.form.id.split("_")
-        oldListId = idArr[2]
+        oldListId = this.form.id.split("_")[2]
         wordId = this.id.split("_")[0]
         newListId = $("." + this.value).attr("id")
-        console.log(oldListId, newListId, wordId)
-        changeList(oldListId, newListId, wordId)
+        console.log newListId
+
+        moveItem = ->
+            item = document.getElementById(wordId)
+            div = document.getElementById(newListId)
+            div.appendChild(item).fadeIn
+
+        changeList(oldListId, newListId, wordId, moveItem)
+
 

@@ -28,11 +28,14 @@ class WordsController < ApplicationController
     @oldList = List.find(params[:old_list_id].to_i)
     @newList = List.find(params[:new_list_id].to_i)
     word = Word.find(params[:word_id].to_i)
-    @oldList.words.delete(word)
+    word.lists.delete(@oldList)
     @newList.words << word
     render :json => @newList
   end
 
   def destroy
+    word = Word.find(params[:id].to_i)
+    word.destroy
+    redirect_to user_lists_path(current_user.id)
   end
 end

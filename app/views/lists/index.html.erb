@@ -3,7 +3,7 @@
 <h2><%= list.name %></h2>
 <div class="<%= list.name %>" id="<%= list.id %>">
     <% list.words.each do |word| %>
-        <table>
+        <table id="<%= word.id %>">
             <tr>
                 <!-- Display word -->
                 <td id="<%= word.name %>">
@@ -32,8 +32,11 @@
                         <label for="size_3">Graduated</label>
                         </fieldset>
                     </form>
+                    <!-- Delete button -->
+                    <%= link_to "delete", "/words/#{word.id}", method: :delete, data: { confirm: "You sure?" } %>
                 </td>
             </tr>
         </table>
     <% end %>
+</div>
 <% end %>
