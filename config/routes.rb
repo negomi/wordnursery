@@ -11,10 +11,9 @@ Wordnursery::Application.routes.draw do
 
   resources :words
 
+  resources :search
+
   resources :users do
     resources :lists
   end
-
-  get "/search" => "search#index"
-
 end
