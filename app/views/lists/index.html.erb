@@ -1,42 +1,35 @@
 <h1>my nursery</h1>
 <% @lists.each do |list| %>
 <h2><%= list.name %></h2>
+<!-- Display list -->
 <div class="<%= list.name %>" id="<%= list.id %>">
-    <% list.words.each do |word| %>
-        <table id="<%= word.id %>">
-            <tr>
+    <table id="<%= list.name %>">
+        <% list.words.each do |word| %>
+            <tr id="<%= word.name %>">
                 <!-- Display word -->
-                <td id="<%= word.name %>">
-                    <%= word.name %>
+                <td>
+                    <h3 class="word"><a name="<%= word.name %>" id="<%= word.name %>_word"><%= word.name %></a></h3>
                     <div id="<%= word.name %>_definitions" style="display:none">
                         <%= word.pronunciation %>
                         <% word.definition.each do |result| %>
-                            <h3><%= result[:part_of_speech] %></h3>
+                            <h4><%= result[:part_of_speech] %></h4>
                             <p><%= result[:definition] %></p>
                         <% end %>
                         <p class="smallprint"><%= word.attribution %></p>
                     </div>
                 </td>
-                <!-- Display radio buttons to change its list -->
+                <!-- Display links to change its list -->
+                <td class="list-icons">
+                    <a name="kindergarten" id="<%= word.name %>-kindergarten-icon" data-list-id="<%= list.id %>" data-word-id="<%= word.id %>">K</a>
+                    <a name="school" id="<%= word.name %>-school-icon" data-list-id="<%= list.id %>" data-word-id="<%= word.id %>">S</a>
+                    <a name="graduated" id="<%= word.name %>-graduated-icon" data-list-id="<%= list.id %>" data-word-id="<%= word.id %>">G</a>
+                </td>
+                <!-- Delete button -->
                 <td>
-                    <form id="<%= word.name %>_form_<%= list.id %>">
-                        <fieldset>
-                        <legend>List</legend>
-                        <input type="radio" name="list" id="<%= word.id %>_k" value="kindergarten" />
-                        <label for="size_1">Kindergarten</label>
-
-                        <input type="radio" name="list" id="<%= word.id %>_s" value="school" />
-                        <label for="size_2">School</label>
-
-                        <input type="radio" name="list" id="<%= word.id %>_g" value="graduated" />
-                        <label for="size_3">Graduated</label>
-                        </fieldset>
-                    </form>
-                    <!-- Delete button -->
-                    <%= link_to "delete", "/words/#{word.id}", method: :delete, data: { confirm: "You sure?" } %>
+                    <%= link_to "delete", "/words/#{word.id}", method: :delete, data: { confirm: "Sure you want to remove #{word.name}?" } %>
                 </td>
             </tr>
-        </table>
-    <% end %>
+        <% end %>
+    </table>
 </div>
 <% end %>

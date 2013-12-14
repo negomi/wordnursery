@@ -29,8 +29,9 @@ class WordsController < ApplicationController
     @newList = List.find(params[:new_list_id].to_i)
     word = Word.find(params[:word_id].to_i)
     word.lists.delete(@oldList)
+    # @oldList.words.delete(word)
     @newList.words << word
-    render :json => @newList
+    render :json => word
   end
 
   def destroy
