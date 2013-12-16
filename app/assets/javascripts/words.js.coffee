@@ -4,6 +4,7 @@
 
 $(document).ready ->
 
+    # Change word list via AJAX
     changeList = (oldListId, newListId, wordId, callback) ->
         $.ajax '/words/update_word_list',
             type: 'POST'
@@ -14,6 +15,7 @@ $(document).ready ->
             success: (data, textStatus, jqXHR) ->
                 callback()
 
+    # Trigger word list change on click
     $('.list-icons a').click (event) ->
         selected = this
         oldListId = $(selected).data('listId')
@@ -24,11 +26,13 @@ $(document).ready ->
         moveItem = ->
             newList = document.getElementById(newListId).children[0]
             $(wordElement).data('listId', newListId)
-            $(newList).append(wordElement).fadeIn()
+            $(newList).append(wordElement)
 
-        $(wordElement).fadeOut() ->
-            changeList(oldListId, newListId, wordId, moveItem)
+        # FIXME Get fadeIn() and fadeOut() working
+        # $(wordElement).fadeOut() ->
+        changeList(oldListId, newListId, wordId, moveItem)
 
+    # Show word definitions
     $('.word a').click (event) ->
         word = this.name
         $('#' + word + '_definitions').slideToggle()
