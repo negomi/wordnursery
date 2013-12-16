@@ -10,7 +10,6 @@ class Word < ActiveRecord::Base
   protected
 
   def entry_exists
-    word = Word.where(:name => self.name, :user_id => user.id)
     binding.pry
     case name
     when blank?
