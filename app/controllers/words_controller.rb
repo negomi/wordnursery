@@ -9,12 +9,10 @@ class WordsController < ApplicationController
   end
 
   def create
-    current_user.lists[0].words.create(
-      name: params[:word],
-      pronunciation: params[:pronunciation],
-      definition: params[:definitions],
-      attribution: params[:attribution]
-      )
+    current_user.lists[0].words.create( name: params[:word],
+                                        pronunciation: params[:pronunciation],
+                                        definition: params[:definitions],
+                                        attribution: params[:attribution] )
     redirect_to user_lists_path(current_user.id)
   end
 

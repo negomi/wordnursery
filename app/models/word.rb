@@ -2,7 +2,7 @@ class Word < ActiveRecord::Base
   attr_accessible :name, :pronunciation, :definition, :attribution
   serialize :definition
   # Callback method to verify presence
-  validate :entry_exists
+  validate :entry_exists, :on => :create
   after_validation :lookup_word
 
   has_and_belongs_to_many :lists
@@ -10,11 +10,20 @@ class Word < ActiveRecord::Base
   protected
 
   def entry_exists
-    if name.blank?
+    word = Word.where(:name => self.name, :user_id => user.id)
+    binding.pry
+    case name
+    when blank?
       # FIXME Error handling doesn't work
       errors.add(:name, "You can't leave it blank.")
-    elsif Wordnik.word.get_definitions(name) == []
+      binding.pry
+    when Wordnik.word.get_definitions(name) == []
       errors.add(:name, "We didn't find any definitions for #{name}.")
+    when Word.exists?(name: name)
+      binding.pry
+      # Use existing entry
+    else
+      lookup_word
     end
   end
 
@@ -48,5 +57,4 @@ class Word < ActiveRecord::Base
     hash = Wordnik.word.get_random_word(name)
     hash["word"].downcase
   end
-
 end
