@@ -1,24 +1,31 @@
 class Word < ActiveRecord::Base
   attr_accessible :name, :pronunciation, :definition, :attribution
   serialize :definition
-  # Callback method to verify presence
+  # Callback method to verify existence
   validate :entry_exists
-  after_validation :lookup_word
+  validates :name, :presence => true, :uniqueness => true
+  before_save :lookup
 
   has_and_belongs_to_many :lists
 
   protected
 
+  def self.get_random_word
+    hash = Wordnik.word.get_random_word(name)
+    hash["word"].downcase
+  end
+
   def entry_exists
+    # Error if the user searched for nothing
     if name.blank?
-      # FIXME Error handling doesn't work
-      errors.add(:name, "You can't leave it blank.")
-    elsif Wordnik.word.get_definitions(name) == []
+      errors.add(:name, "You didn't type anything.")
+    # Error if word doesn't exist in DB and doesn't have definitions
+    elsif !Word.exists?(name: name) && Wordnik.word.get_definitions(name) == []
       errors.add(:name, "We didn't find any definitions for #{name}.")
     end
   end
 
-  def lookup_word
+  def lookup
     # Get definitions
     definitions_array = Wordnik.word.get_definitions(self.name)
     definitions = []
@@ -43,10 +50,4 @@ class Word < ActiveRecord::Base
       self.pronunciation = pronunciation
     end
   end
-
-  def self.get_random_word
-    hash = Wordnik.word.get_random_word(name)
-    hash["word"].downcase
-  end
-
 end
