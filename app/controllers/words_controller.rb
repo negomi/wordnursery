@@ -5,14 +5,11 @@ class WordsController < ApplicationController
   end
 
   def new
-    @word = Word.new
   end
 
   def create
-    current_user.lists[0].words.create( name: params[:word],
-                                        pronunciation: params[:pronunciation],
-                                        definition: params[:definitions],
-                                        attribution: params[:attribution] )
+    word = Word.find(params[:word][:id].to_i)
+    current_user.lists[0].words << word
     redirect_to user_lists_path(current_user.id)
   end
 
@@ -27,7 +24,6 @@ class WordsController < ApplicationController
     @newList = List.find(params[:new_list_id].to_i)
     word = Word.find(params[:word_id].to_i)
     word.lists.delete(@oldList)
-    # @oldList.words.delete(word)
     @newList.words << word
     render :json => word
   end
