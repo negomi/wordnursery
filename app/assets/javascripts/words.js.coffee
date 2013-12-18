@@ -27,7 +27,7 @@ $(document).ready ->
         moveItem = ->
             $wordElement.fadeOut 400, ->
                 $newList.children("table").append($wordElement)
-                $wordElement.fadeIn
+                $wordElement.fadeIn()
 
         changeList(oldListId, newListId, wordId, moveItem)
 
