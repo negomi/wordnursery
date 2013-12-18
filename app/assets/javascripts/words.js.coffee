@@ -17,19 +17,18 @@ $(document).ready ->
 
     # Trigger word list change on click
     $('.list-icons a').click (event) ->
-        selected = this
-        oldListId = $(selected).data('listId')
-        newListId = $("." + selected.name).attr("id")
-        wordId = $(selected).data('wordId')
-        wordElement = $(selected).parents()[1]
+        oldListId = $(this).closest("div").attr("id")
+        $newList = $("." + $(this).attr("name"))
+        newListId = $newList.attr("id")
+        wordId = $(this).data('wordId')
+        $wordElement = $(this).closest("tr")
 
+        # Append item to new list
         moveItem = ->
-            newList = document.getElementById(newListId).children[0]
-            $(wordElement).data('listId', newListId)
-            $(newList).append(wordElement)
+            $wordElement.fadeOut 400, ->
+                $newList.children("table").append($wordElement)
+                $wordElement.fadeIn
 
-        # FIXME Get fadeIn() and fadeOut() working
-        # $(wordElement).fadeOut() ->
         changeList(oldListId, newListId, wordId, moveItem)
 
     # Show word definitions
