@@ -968,10 +968,10 @@
 //
 
 // Background color for the top bar
-$topbar-bg: rgba(255,255,255,0.8);
+$topbar-bg: transparentize(white, 0.2);;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 55px;
 // $topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
@@ -982,13 +982,13 @@ $topbar-bg: rgba(255,255,255,0.8);
 // $topbar-title-font-size: emCalc(17px);
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
+// $topbar-link-color: #666;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
-// $topbar-dropdown-link-color: #fff;
+$topbar-dropdown-bg: #666;
+$topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.5;
@@ -999,7 +999,7 @@ $topbar-bg: rgba(255,255,255,0.8);
 // $topbar-menu-link-font-size: emCalc(13px);
 // $topbar-menu-link-weight: bold;
 // $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
+$topbar-menu-icon-color: #666;
 // $topbar-menu-link-color-toggled: #888;
 // $topbar-menu-icon-color-toggled: #888;
 

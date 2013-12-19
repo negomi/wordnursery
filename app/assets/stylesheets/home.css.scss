@@ -2,7 +2,240 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "foundation_and_overrides";
+@import "compass/css3";
+
+$gray: #666;
+$pink: #e39bab;
+$blue: #a7b5e5;
+$white: #fff;
+$translucent-white: transparentize($white, 0.2);
+$primary-font: 'Quicksand', sans-serif;
+$secondary-font: 'Raleway', sans-serif;
+
+// Layout
+
 body {
     background: image-url('stripe.png');
 }
 
+.top-bar {
+    // background-color: $translucent-white;
+    // height: 55px;
+    // margin-bottom: 10px;
+    @media #{$medium-up} {
+        margin-bottom: 50px;
+    }
+
+    .logo {
+        font-family: $primary-font;
+        font-size: 2em;
+        margin-left: 10px;
+    }
+
+    .logo1 {
+        color: $pink;
+    }
+
+    .logo2 {
+        color: $blue;
+    }
+}
+
+.container {
+    background-color: $translucent-white;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    text-align: center;
+    @media #{$medium-up} {
+        padding: 30px;
+    }
+    @media #{$large-up} {
+        margin-bottom: 50px;
+        padding: 50px;
+        @include border-radius(30px);
+    }
+}
+
+.intro {
+    margin: auto;
+    width: 90%;
+    h1 {
+        @media #{$small-only} {
+            font-size: 2.5em;
+        }
+    }
+}
+
+// Typography
+
+h1 {
+    color: $pink;
+    font-family: $secondary-font;
+    font-weight: bold;
+}
+
+h2, h3, h4, h5, h6 {
+    color: $gray;
+    font-weight: bold;
+}
+
+p {
+    color: $gray;
+    font-family: $secondary-font;
+}
+
+a {
+    color: darken($gray, 10%);
+    &:hover, &:focus {
+        color: darken($gray, 20%);
+    }
+}
+
+// Forms
+
+form {
+    background: $blue;
+    padding: 40px 15px 15px;
+    @media #{$medium-up} {
+        @include border-radius(30px);
+        margin: 0 auto;
+        width: 70%;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border: none;
+    box-shadow: none;
+    display: inline-block;
+    height: 50px;
+    width: 70%;
+    @media #{$medium-up} {
+        margin-bottom: 20px;
+    }
+}
+
+// Buttons
+
+@mixin button-theme($button-color) {
+    background-color: $button-color;
+    border: none;
+    @include border-radius(10px);
+    box-shadow: none;
+    font-family: $secondary-font;
+    margin-bottom: 5px;
+    &:hover {
+        background-color: darken($button-color, 10%);
+    }
+    &:focus {
+        background-color: darken($button-color, 20%);
+        outline: none;
+    }
+}
+
+.button {
+    @include button-theme($gray);
+}
+
+.button-blue, .button-blue:hover {
+    color: $gray;
+    @include button-theme($blue);
+}
+
+.results-buttons {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    background: none;
+    display: inline;
+    position: relative;
+    padding: 0;
+}
+
+.go {
+    @include border-radius(0);
+    margin-left: -4px;
+    padding-top: 15px;
+}
+
+////////////////// Search
+
+.results {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 0 15px;
+    text-align: left;
+}
+
+.title {
+    @media #{$large-up} {
+        font-size: 4em;
+    }
+}
+
+.smallprint {
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+////////////////// Lists
+
+.nursery {
+    text-align: left;
+    margin: auto;
+    max-width: 600px;
+    h1{
+        margin-left: 10px;
+    }
+    .kindergarten {
+        tr {
+            background-color: $pink;
+        }
+    }
+    .school {
+        tr {
+            background-color: $blue;
+        }
+    }
+    .graduated {
+        tr {
+            background-color: lighten($gray, 20%);
+        }
+    }
+}
+
+table {
+    margin: 0 auto;
+    width: 100%;
+    .word-box {
+        width: 55%;
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .list-icons {
+        font-size: 2em;
+        text-align: center;
+        width: 35%;
+        i {
+            padding: 0 10px;
+            }
+        @media #{$small-only} {
+            i {
+                padding: 0;
+            }
+        }
+    }
+    .delete {
+        font-size: 2em;
+        text-align: center;
+        width: 10%;
+    }
+}

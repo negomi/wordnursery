@@ -9,7 +9,14 @@ class WordsController < ApplicationController
 
   def create
     word = Word.find(params[:word][:id].to_i)
-    current_user.lists[0].words << word
+    # FIXME checking if user has word already not working
+    current_words = []
+    current_words = current_user.lists.each do |list|
+      current_words << list.words
+    end
+    unless current_words.flatten.include?(word)
+      current_user.lists[0].words << word
+    end
     redirect_to user_lists_path(current_user.id)
   end
 

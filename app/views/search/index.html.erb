@@ -3,24 +3,27 @@
     <% @word.errors.messages.each do |msg| %>
       <p><%= msg[1][0] %></p>
     <% end %>
+
+    <!-- FIXME DRY this up -->
+    <%= link_to "New search", root_path, class: "button small" %>
+
+    <!-- FIXME Use form_for -->
+    <form class="hidden" action="/search" method="get">
+    	<input class="button small" name="searchtype" type="submit" value="Randomize!">
+    </form>
 <% else %>
 	<section class="results">
-		<div class="results-header">
-
-			<%= form_for @word, method: :post, url: words_path, html: { class: "hidden" } do |f| %>
-				<%= f.hidden_field :id %>
-				<%= f.submit name: "store", class: "button button-blue", value: "Add to Nursery" %>
-			<% end %>
-
- 			<%= link_to "New search", root_path, class: "button button-white" %>
-
-			<!-- FIXME Use form_for -->
-			<form class="hidden" action="/search" method="get">
-				<input class="button button-white" name="searchtype" type="submit" value="Randomize!">
-			</form>
-
-			<h1 class="title"><%= @word.name %></h1>
+		<div class="results-buttons">
+		    <!-- FIXME form_for DRY this up -->
+		    <%= form_for @word, method: :post, url: words_path, html: { class: "hidden" } do |f| %>
+		    <%= f.hidden_field :id %>
+		    <%= f.submit name: "store", class: "button small button-blue", value: "Add to Nursery" %>
+		    <% end %>
+		    <form class="hidden lists" action="/search" method="get">
+		    	<input class="button small random" name="searchtype" type="submit" value="Randomize!">
+		    </form>
 		</div>
+		<h1 class="title"><%= @word.name %></h1>
 		<h2><%= @word.pronunciation %></h2>
 		<section class="definitions">
 			<% if @error %>

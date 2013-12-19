@@ -1,35 +1,38 @@
-<h1>my nursery</h1>
-<% @lists.each do |list| %>
-<h2><%= list.name %></h2>
-<!-- Display list -->
-<div class="<%= list.name %>" id="<%= list.id %>">
-    <table id="<%= list.name %>">
-        <% list.words.each do |word| %>
-            <tr id="<%= word.name %>">
-                <!-- Display word -->
-                <td>
-                    <h3 class="word"><a name="<%= word.name %>" id="<%= word.name %>_word"><%= word.name %></a></h3>
-                    <div id="<%= word.name %>_definitions" style="display:none">
-                        <%= word.pronunciation %>
-                        <% word.definition.each do |result| %>
-                            <h4><%= result[:part_of_speech] %></h4>
-                            <p><%= result[:definition] %></p>
+<section class="nursery">
+    <% @lists.each do |list| %>
+    <!-- Display list -->
+    <div class="<%= list.name %>" id="<%= list.id %>">
+        <table id="<%= list.name %>">
+            <h1><%= list.name %></h1>
+            <% list.words.each do |word| %>
+                <tr id="<%= word.name %>">
+                    <!-- Display word -->
+                    <td class="word-box">
+                        <h4 class="word"><a name="<%= word.name %>" id="<%= word.name %>_word"><%= word.name %></a></h4>
+                        <div id="<%= word.name %>_definitions" style="display:none">
+                            <h5><%= word.pronunciation %></h5>
+                            <% word.definition.each do |result| %>
+                                <h6><%= result[:part_of_speech] %></h6>
+                                <p><%= result[:definition] %></p>
+                            <% end %>
+                            <p class="smallprint"><%= word.attribution %></p>
+                        </div>
+                    </td>
+                    <!-- Display links to change word list -->
+                    <td class="list-icons">
+                        <a name="kindergarten" id="<%= word.name %>-kindergarten-icon" data-word-id="<%= word.id %>"><i class="fi-foot"></i></a>
+                        <a name="school" id="<%= word.name %>-school-icon" data-word-id="<%= word.id %>"><i class="fi-book-bookmark"></i></a>
+                        <a name="graduated" id="<%= word.name %>-graduated-icon" data-word-id="<%= word.id %>"><i class="fi-trophy"></i></a></a>
+                    </td>
+                    <!-- Delete button -->
+                    <td class="delete">
+                        <%= link_to(word, method: :delete, data: { confirm: "Sure you want to remove #{word.name}?" }) do %>
+                            <i class="fi-x"></i>
                         <% end %>
-                        <p class="smallprint"><%= word.attribution %></p>
-                    </div>
-                </td>
-                <!-- Display links to change word list -->
-                <td class="list-icons">
-                    <a name="kindergarten" id="<%= word.name %>-kindergarten-icon" data-word-id="<%= word.id %>">K</a>
-                    <a name="school" id="<%= word.name %>-school-icon" data-word-id="<%= word.id %>">S</a>
-                    <a name="graduated" id="<%= word.name %>-graduated-icon" data-word-id="<%= word.id %>">G</a>
-                </td>
-                <!-- Delete button -->
-                <td>
-                    <%= link_to "delete", "/words/#{word.id}", method: :delete, data: { confirm: "Sure you want to remove #{word.name}?" } %>
-                </td>
-            </tr>
-        <% end %>
-    </table>
-</div>
-<% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+    <% end %>
+</section>
