@@ -20,9 +20,6 @@ body {
 }
 
 .top-bar {
-    // background-color: $translucent-white;
-    // height: 55px;
-    // margin-bottom: 10px;
     @media #{$medium-up} {
         margin-bottom: 50px;
     }
@@ -39,6 +36,13 @@ body {
 
     .logo2 {
         color: $blue;
+    }
+
+    .top-bar-section li a:not(.button) {
+        background-color: $gray;
+        &:hover {
+            background-color: darken($gray, 10%);
+        }
     }
 }
 
@@ -164,7 +168,7 @@ input[type="password"]:focus {
     padding-top: 15px;
 }
 
-////////////////// Search
+// Search
 
 .results {
     margin: 0 auto;
@@ -185,7 +189,7 @@ input[type="password"]:focus {
     padding-top: 10px;
 }
 
-////////////////// Lists
+// Lists
 
 .nursery {
     text-align: left;
