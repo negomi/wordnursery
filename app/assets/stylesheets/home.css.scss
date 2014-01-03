@@ -52,11 +52,8 @@ body {
     padding: 20px 0;
     text-align: center;
     @media #{$medium-up} {
-        padding: 30px;
-    }
-    @media #{$large-up} {
         margin-bottom: 50px;
-        padding: 50px;
+        padding: 50px 0;
         @include border-radius(30px);
     }
 }
@@ -142,7 +139,7 @@ input[type="password"]:focus {
     }
 }
 
-.button {
+.button, input[type="submit"] {
     @include button-theme($gray);
 }
 
