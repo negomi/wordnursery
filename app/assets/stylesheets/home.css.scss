@@ -2,18 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "foundation_and_overrides";
-@import "compass/css3";
-
-$gray: #666;
-$pink: #e39bab;
-$blue: #a7b5e5;
-$white: #fff;
-$translucent-white: transparentize($white, 0.2);
-$off-white: lighten($gray, 50%);
-$primary-font: 'Quicksand', sans-serif;
-$secondary-font: 'Raleway', sans-serif;
-
 // Layout
 
 body {
@@ -169,84 +157,7 @@ input[type="password"]:focus {
     padding-top: 15px;
 }
 
-// Search
-
-.results {
-    margin: 0 auto;
-    max-width: 500px;
-    padding: 0 15px;
-    text-align: left;
-}
-
-.title {
-    @media #{$large-up} {
-        font-size: 4em;
-    }
-}
-
-.smallprint {
-    font-size: 0.8em;
-    font-weight: bold;
-    padding-top: 10px;
-}
-
-// Lists
-
-.nursery {
-    text-align: left;
-    margin: auto;
-    max-width: 600px;
-    padding: 0 5px;
-    .kindergarten {
-        tr {
-            background-color: $pink;
-        }
-    }
-    .school {
-        tr {
-            background-color: $blue;
-        }
-    }
-    .graduated {
-        tr {
-            background-color: lighten($gray, 30%);
-        }
-    }
-}
-
-table {
-    margin: 0 auto 10px;
-    width: 100%;
-    .word-box {
-        width: 50%;
-        p {
-            margin-bottom: 0;
-        }
-        @media #{$medium-up} {
-            width: 60%;
-        }
-    }
-    .list-icons {
-        font-size: 2em;
-        text-align: center;
-        @media #{$medium-up} {
-            i {
-                padding: 0 5%;
-            }
-        }
-    }
-    .delete {
-        font-size: 2em;
-        text-align: center;
-        width: 10%;
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-// Misc
+// Links
 
 .links {
     font-family: $secondary-font;
