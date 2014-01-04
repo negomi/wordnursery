@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @lists = current_user.lists.all
   end
 
   def new

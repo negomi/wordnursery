@@ -10,6 +10,7 @@ $pink: #e39bab;
 $blue: #a7b5e5;
 $white: #fff;
 $translucent-white: transparentize($white, 0.2);
+$off-white: lighten($gray, 50%);
 $primary-font: 'Quicksand', sans-serif;
 $secondary-font: 'Raleway', sans-serif;
 
@@ -48,10 +49,12 @@ body {
 
 .container {
     background-color: $translucent-white;
-    margin-bottom: 40px;
-    padding: 20px 0;
+    padding: 20px 0 0;
     text-align: center;
     @media #{$medium-up} {
+        padding-bottom: 30px;
+    }
+    @media #{$large-up} {
         margin-bottom: 50px;
         padding: 50px 0;
         @include border-radius(30px);
@@ -139,7 +142,7 @@ input[type="password"]:focus {
     }
 }
 
-.button, input[type="submit"] {
+.button {
     @include button-theme($gray);
 }
 
@@ -147,6 +150,7 @@ input[type="password"]:focus {
     color: $gray;
     @include button-theme($blue);
 }
+
 
 .results-buttons {
     margin-bottom: 20px;
@@ -192,9 +196,7 @@ input[type="password"]:focus {
     text-align: left;
     margin: auto;
     max-width: 600px;
-    h1{
-        margin-left: 10px;
-    }
+    padding: 0 5px;
     .kindergarten {
         tr {
             background-color: $pink;
@@ -207,7 +209,7 @@ input[type="password"]:focus {
     }
     .graduated {
         tr {
-            background-color: lighten($gray, 20%);
+            background-color: lighten($gray, 30%);
         }
     }
 }
@@ -216,7 +218,7 @@ table {
     margin: 0 auto;
     width: 100%;
     .word-box {
-        width: 55%;
+        width: 50%;
         p {
             margin-bottom: 0;
         }
@@ -226,7 +228,7 @@ table {
         text-align: center;
         width: 35%;
         i {
-            padding: 0 10px;
+            padding: 0 5%;
             }
         @media #{$small-only} {
             i {
@@ -238,5 +240,15 @@ table {
         font-size: 2em;
         text-align: center;
         width: 10%;
+    }
+}
+
+// Misc
+
+.links {
+    font-family: $secondary-font;
+    margin-top: 10px;
+    a {
+        line-height: 1.2em;
     }
 }
