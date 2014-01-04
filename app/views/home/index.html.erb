@@ -1,12 +1,10 @@
 <section class="intro">
 	<h1>A cute way to build your vocabulary.</h1>
 	<p>Discover new words, add them to your nursery, and nurture them till you know their meaning.</p>
-
 </section>
-<!-- FIXME Use form_for -->
-<form action="/search" method="get">
-	<input class="search" type="text" name="name" placeholder="Search for a word...">
-	<input class="button go" name="searchtype" type="submit" value=">>">
-	<br>
-	<input class="button random" name="searchtype" type="submit" value="Randomize!">
-</form>
+
+<%= form_tag "/search", method: "get" do %>
+    <%= text_field_tag "name", nil, class: "search", placeholder: "Search for a word..." %>
+    <%= submit_tag ">>", class: "button go", name: "searchtype" %><br>
+    <%= submit_tag "Randomize!", class: "button random", name: "searchtype" %>
+<% end %>

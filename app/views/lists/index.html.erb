@@ -17,7 +17,11 @@
                     <tr id="<%= word.name %>">
                         <!-- Display word -->
                         <td class="word-box">
-                            <h4 class="word"><a name="<%= word.name %>" id="<%= word.name %>_word"><%= word.name %></a></h4>
+                            <h4 class="word">
+                                <%= link_to "#", name: "#{word.name}", id: "#{word.name}_word" do %>
+                                    <%= word.name %>
+                                <% end %>
+                            </h4>
                             <div id="<%= word.name %>_definitions" style="display:none">
                                 <h5><%= word.pronunciation %></h5>
                                 <% word.definition.each do |result| %>
@@ -29,9 +33,17 @@
                         </td>
                         <!-- Display links to change word list -->
                         <td class="list-icons">
-                            <a name="kindergarten" id="<%= word.name %>-kindergarten-icon" data-word-id="<%= word.id %>"><i class="fi-foot"></i></a>
-                            <a name="school" id="<%= word.name %>-school-icon" data-word-id="<%= word.id %>"><i class="fi-book-bookmark"></i></a>
-                            <a name="graduated" id="<%= word.name %>-graduated-icon" data-word-id="<%= word.id %>"><i class="fi-trophy"></i></a></a>
+                            <%= link_to "#", name: "kindergarten", id: "#{word.name}-kindergarten-icon", data: { word_id: "#{word.id}" } do %>
+                                <i class="fi-foot"></i>
+                            <% end %>
+
+                            <%= link_to "#", name: "school", id: "#{word.name}-school-icon", data: { word_id: "#{word.id}" } do %>
+                                <i class="fi-book-bookmark"></i>
+                            <% end %>
+
+                            <%= link_to "#", name: "graduated", id: "#{word.name}-graduated-icon", data: { word_id: "#{word.id}" } do %>
+                                <i class="fi-trophy"></i>
+                            <% end %>
                         </td>
                         <!-- Delete button -->
                         <td class="delete">
