@@ -215,24 +215,23 @@ input[type="password"]:focus {
 }
 
 table {
-    margin: 0 auto 5px;
+    margin: 0 auto 10px;
     width: 100%;
     .word-box {
         width: 50%;
         p {
             margin-bottom: 0;
         }
+        @media #{$medium-up} {
+            width: 60%;
+        }
     }
     .list-icons {
         font-size: 2em;
         text-align: center;
-        width: 35%;
-        i {
-            padding: 0 5%;
-            }
-        @media #{$small-only} {
+        @media #{$medium-up} {
             i {
-                padding: 0;
+                padding: 0 5%;
             }
         }
     }
@@ -254,6 +253,5 @@ table {
     margin-top: 10px;
     a {
         line-height: 1.2em;
-        margin-top: 10px;
     }
 }
