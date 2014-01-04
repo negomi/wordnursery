@@ -2,17 +2,17 @@
     <% @lists.each do |list| %>
         <!-- Display list -->
         <div class="<%= list.name %>" id="<%= list.id %>">
+            <h1>
+                <% if list.name == "kindergarten" %>
+                    <i class="fi-foot"></i>
+                <% elsif list.name == "school" %>
+                    <i class="fi-book-bookmark"></i>
+                <% else %>
+                    <i class="fi-trophy"></i>
+                <% end %>
+                <%= list.name %>
+            </h1>
             <table id="<%= list.name %>">
-                <h1>
-                    <% if list.name == "kindergarten" %>
-                        <i class="fi-foot"></i>
-                    <% elsif list.name == "school" %>
-                        <i class="fi-book-bookmark"></i>
-                    <% else %>
-                        <i class="fi-trophy"></i>
-                    <% end %>
-                    <%= list.name %>
-                </h1>
                 <% list.words.each do |word| %>
                     <tr id="<%= word.name %>">
                         <!-- Display word -->
@@ -43,5 +43,8 @@
                 <% end %>
             </table>
         </div>
+    <% end %>
+    <%= link_to "#", id: "show-graduated" do %>
+        <p>Show graduated words &darr;</p>
     <% end %>
 </section>

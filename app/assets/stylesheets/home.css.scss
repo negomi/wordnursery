@@ -49,7 +49,7 @@ body {
 
 .container {
     background-color: $translucent-white;
-    padding: 20px 0 0;
+    padding: 20px 0;
     text-align: center;
     @media #{$medium-up} {
         padding-bottom: 30px;
@@ -156,7 +156,7 @@ input[type="password"]:focus {
     margin-bottom: 20px;
 }
 
-.hidden {
+.hidden-form {
     background: none;
     display: inline;
     position: relative;
@@ -215,7 +215,7 @@ input[type="password"]:focus {
 }
 
 table {
-    margin: 0 auto;
+    margin: 0 auto 5px;
     width: 100%;
     .word-box {
         width: 50%;
@@ -243,6 +243,10 @@ table {
     }
 }
 
+.hidden {
+    display: none;
+}
+
 // Misc
 
 .links {
@@ -250,5 +254,6 @@ table {
     margin-top: 10px;
     a {
         line-height: 1.2em;
+        margin-top: 10px;
     }
 }
