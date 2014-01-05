@@ -35,4 +35,4 @@ $(document).ready ->
     # Show word definitions
     $('.word a').click (event) ->
         word = this.name
-        $('#' + word + '_definitions').slideToggle()
+        $('#' + word + '_definitions').slideToggle

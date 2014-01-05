@@ -13,7 +13,7 @@ $(document).ready ->
     # Show graduated words on click
     $graduatedLink.click (event) ->
         event.preventDefault()
-        $graduatedWords.slideToggle () ->
+        $graduatedWords.slideToggle ->
             if $graduatedWords.is(':visible')
                 $graduatedLink[0].innerHTML = '<p>Hide graduated words &uarr;</p>'
             else
