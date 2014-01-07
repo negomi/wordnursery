@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:create]
 
   def show
   end
@@ -8,16 +8,21 @@ class WordsController < ApplicationController
   end
 
   def create
-    word = Word.find(params[:word][:id].to_i)
-    # FIXME checking if user has word already not working
-    current_words = []
-    current_words = current_user.lists.each do |list|
-      current_words << list.words
+    word = session[:word] || Word.find(params[:word][:id].to_i)
+    # Check if user is logged in
+    if current_user
+      # Check if user already has the word saved
+      current_words = current_user.lists.map { |list| list.words }
+      if current_words.flatten.include?(word)
+        redirect_to :back, flash: { error: "You've already saved '#{word.name}'" }
+      else
+        current_user.lists[0].words << word
+        redirect_to user_lists_path(current_user.id)
+      end
+    else
+      session[:word] = word
+      redirect_to user_session_path, flash: { error: "You need to be signed in to save words." }
     end
-    unless current_words.flatten.include?(word)
-      current_user.lists[0].words << word
-    end
-    redirect_to user_lists_path(current_user.id)
   end
 
   def edit
