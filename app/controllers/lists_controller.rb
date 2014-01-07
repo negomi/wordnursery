@@ -1,6 +1,13 @@
 class ListsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
-    @lists = current_user.lists.all
+    if session[:word]
+      add_to_nursery(session[:word])
+      session[:word] = nil
+    else
+      @lists = current_user.lists.all
+    end
   end
 
   def show
