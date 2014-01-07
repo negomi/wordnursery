@@ -1,5 +1,7 @@
 <h1>sign in</h1>
 
+<%= render "shared/flash" %>
+
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <p><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></p>
