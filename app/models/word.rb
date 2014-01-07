@@ -11,7 +11,7 @@ class Word < ActiveRecord::Base
   protected
 
   def self.get_random_word
-    hash = Wordnik.word.get_random_word(name)
+    hash = Wordnik.word.get_random_word
     hash["word"].downcase
   end
 
