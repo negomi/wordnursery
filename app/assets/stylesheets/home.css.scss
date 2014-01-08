@@ -45,7 +45,6 @@ body {
         padding-bottom: 30px;
     }
     @media #{$large-up} {
-        margin-bottom: 50px;
         padding: 50px 0;
         @include border-radius(30px);
     }
@@ -180,5 +179,29 @@ input[type="password"]:focus {
     @media #{$medium-up} {
         @include border-radius(10px);
         width: 50%;
+    }
+}
+
+// Modal & icons
+
+.icons {
+    font-size: 2em;
+    margin: 10px;
+    text-align: center;
+    i {
+        color: transparentize($translucent-white, 0.1);
+        &:hover {
+            color: $white;
+        }
+    }
+    @media #{$large-up} {
+        margin-bottom: 50px;
+    }
+}
+
+.modal-contents {
+    text-align: center;
+    i {
+        font-size: 2em;
     }
 }

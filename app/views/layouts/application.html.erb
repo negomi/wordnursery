@@ -20,6 +20,7 @@
   </head>
 
   <body>
+    <!-- Nav -->
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="logo">
@@ -27,7 +28,6 @@
         </li>
         <li class="toggle-topbar menu-icon"><a href="/"><span></span></a></li>
       </ul>
-
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
@@ -49,12 +49,26 @@
       </section>
     </nav>
 
+    <!-- Main content -->
   	<div class="row">
   		<div class="small-12 large-centered columns container">
   			<%= yield %>
   		</div>
   	</div>
 
+    <!-- Icons -->
+    <div class="row">
+      <%= render "shared/about_modal" %>
+      <div class="icons">
+        <%= link_to "#", data: { reveal_id: "myModal" } do %>
+          <i class="fi-info"></i>
+        <% end %>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://wordnursery.herokuapp.com" target="_blank"><i class="fi-social-facebook"></i></a>
+        <a href="https://twitter.com/share?url=http://wordnursery.herokuapp.com/&amp;text=I'm making my vocabulary awesome with WordNursery&amp;hashtags=learnnewwords" target="_blank"><i class="fi-social-twitter"></i></a>
+      </div>
+    </div>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     <%= javascript_include_tag "vendor/modernizr" %>
   	<%= javascript_include_tag "application" %>
   </body>

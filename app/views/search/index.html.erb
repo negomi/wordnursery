@@ -10,29 +10,28 @@
             <p><%= msg[1][0] %></p>
         <% end %>
     <% else %>
-
-		<div class="results-buttons">
-		    <%= form_for @word, method: :post, url: words_path, html: { class: "hidden-form" } do |f| %>
-		        <%= f.hidden_field :id %>
-		        <%= f.submit name: "store", class: "button button-blue small", value: "Add to Nursery" %>
-		    <% end %>
+    	<div class="results-buttons">
+    	    <%= form_for @word, method: :post, url: words_path, html: { class: "hidden-form" } do |f| %>
+    	        <%= f.hidden_field :id %>
+    	        <%= f.submit name: "store", data: { reveal_id: "myModal" }, class: "button button-blue small", value: "Add to Nursery" %>
+    	    <% end %>
             <%= render "shared/randomize" %>
-		</div>
+    	</div>
 
         <%= render "shared/flash_messages" %>
 
-		<h1 class="title"><%= @word.name %></h1>
-		<h2><%= @word.pronunciation %></h2>
-		<section class="definitions">
-			<% if @error %>
-			<p><%= @error %></p>
-			<% else %>
-				<% @word.definition.each do |result| %>
-					<h3><%= result[:part_of_speech] %></h3>
-					<p><%= result[:definition] %></p>
-				<% end %>
-				<p class="smallprint"><%= @word.attribution %></p>
-			<% end %>
-		</section>
+    	<h1 class="title"><%= @word.name %></h1>
+    	<h2><%= @word.pronunciation %></h2>
+    	<section class="definitions">
+    		<% if @error %>
+    		<p><%= @error %></p>
+    		<% else %>
+    			<% @word.definition.each do |result| %>
+    				<h3><%= result[:part_of_speech] %></h3>
+    				<p><%= result[:definition] %></p>
+    			<% end %>
+    			<p class="smallprint"><%= @word.attribution %></p>
+    		<% end %>
+    	</section>
     <% end %>
 </section>
