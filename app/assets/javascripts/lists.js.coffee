@@ -6,9 +6,10 @@ $(document).ready ->
 
     $graduatedWords = $('.graduated')
     $graduatedLink = $('#show-graduated')
+    $clearLink = $('#clear-graduated')
 
-    # Hide graduated words by default
-    $graduatedWords.hide()
+    # Hide graduated words & clear link by default
+    $graduatedWords.add($clearLink).hide()
 
     # Show graduated words on click
     $graduatedLink.click (event) ->
@@ -16,5 +17,7 @@ $(document).ready ->
         $graduatedWords.slideToggle ->
             if $graduatedWords.is(':visible')
                 $graduatedLink[0].innerHTML = '<p>Hide graduated words &uarr;</p>'
+                $clearLink.show()
             else
                 $graduatedLink[0].innerHTML = '<p>Show graduated words &darr;</p>'
+                $clearLink.hide()

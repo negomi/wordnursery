@@ -9,6 +9,8 @@ Wordnursery::Application.routes.draw do
 
   post "/words/update_word_list" => "words#update_word_list"
 
+  delete "/words/clear_graduated" => "words#clear_graduated"
+
   resources :words
 
   resources :search

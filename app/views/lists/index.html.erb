@@ -59,4 +59,7 @@
     <%= link_to "#", id: "show-graduated" do %>
         <p>Show graduated words &darr;</p>
     <% end %>
+    <%= link_to words_clear_graduated_path, class: "button tiny", id: "clear-graduated", method: :delete, data: { confirm: "Delete all your graduated words?" } do %>
+        Clear graduated
+    <% end %>
 </section>
