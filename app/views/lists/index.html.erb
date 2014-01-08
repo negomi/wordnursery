@@ -22,7 +22,7 @@
                                     <%= word.name %>
                                 <% end %>
                             </h4>
-                            <div id="<%= word.name %>_definitions" style="display:none">
+                            <div id="<%= word.name %>_definitions" class="hidden">
                                 <h5><%= word.pronunciation %></h5>
                                 <% word.definition.each do |result| %>
                                     <h6><%= result[:part_of_speech] %></h6>
@@ -56,10 +56,12 @@
             </table>
         </div>
     <% end %>
+    <!-- Option to show graduated words (hidden by default) -->
     <%= link_to "#", id: "show-graduated" do %>
         <p>Show graduated words &darr;</p>
     <% end %>
-    <%= link_to words_clear_graduated_path, class: "button tiny", id: "clear-graduated", method: :delete, data: { confirm: "Delete all your graduated words?" } do %>
+    <!-- Button to clear graduated list -->
+    <%= link_to words_clear_graduated_path(@word), class: "button tiny", id: "clear-graduated", method: :delete, data: { confirm: "Delete all your graduated words?" } do %>
         Clear graduated
     <% end %>
 </section>

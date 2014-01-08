@@ -17,7 +17,7 @@ class WordsController < ApplicationController
       # Store the word in the session if not
       session[:word] = word
       redirect_to user_session_path, flash: {
-        error: "You need to be signed in to save words."
+        error: "You need to sign in to save words."
       }
     end
   end
@@ -44,8 +44,8 @@ class WordsController < ApplicationController
   end
 
   def clear_graduated
-    graduated = List.find_by_name('graduated')
-    graduated.words.each { |word| word.destroy }
+    graduated = current_user.lists.find_by_name('graduated')
+    graduated.words.destroy_all
     redirect_to user_lists_path(current_user.id)
   end
 end
