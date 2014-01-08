@@ -17,7 +17,7 @@ $(document).ready ->
 
     # Trigger word list change on click
     $('.list-icons a').click (event) ->
-        event.preventDefault
+        event.preventDefault()
         oldListId = $(this).closest("div").attr("id")
         $newList = $("." + $(this).attr("name"))
         newListId = $newList.attr("id")
