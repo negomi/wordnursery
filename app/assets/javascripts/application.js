@@ -16,3 +16,6 @@
 //= require_tree .
 
 $(document).foundation();
+
+// Fade in flash notices
+$('.notice').fadeIn();

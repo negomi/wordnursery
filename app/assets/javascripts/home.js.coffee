@@ -4,4 +4,5 @@
 
 $(document).ready ->
 
-    $('#name').val("");
+    # Set search box to empty
+    $('#name').val("")

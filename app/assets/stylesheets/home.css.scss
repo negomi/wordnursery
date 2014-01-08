@@ -166,3 +166,16 @@ input[type="password"]:focus {
         line-height: 1.2em;
     }
 }
+
+// Notices
+
+.notice {
+    @include border-radius(0);
+    background-color: $pink;
+    margin: 0 auto;
+    display: none;
+    @media #{$medium-up} {
+        @include border-radius(10px);
+        max-width: 350px;
+    }
+}
