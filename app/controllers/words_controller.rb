@@ -8,6 +8,7 @@ class WordsController < ApplicationController
   end
 
   def create
+    # If word in session, use that
     word = session[:word] || Word.find(params[:word][:id].to_i)
     if current_user
       # Add to nursery if user is logged in
