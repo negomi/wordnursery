@@ -1,12 +1,6 @@
 class WordsController < ApplicationController
   before_filter :authenticate_user!, except: [:create]
 
-  def show
-  end
-
-  def new
-  end
-
   def create
     # If word in session, use that
     word = session[:word] || Word.find(params[:word][:id].to_i)
@@ -20,12 +14,6 @@ class WordsController < ApplicationController
         error: "You need to sign in to save words."
       }
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def update_word_list
@@ -48,4 +36,5 @@ class WordsController < ApplicationController
     graduated.words.destroy_all
     redirect_to user_lists_path(current_user.id)
   end
+
 end
