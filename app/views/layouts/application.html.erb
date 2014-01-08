@@ -33,11 +33,19 @@
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-            <li><%= link_to "Hi, #{current_user.email}!", edit_user_registration_path %></li>
-            <li><%= link_to "Nursery", user_lists_path(current_user.id) %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to "My Nursery", user_lists_path(current_user.id) %></li>
+            <li class="divider"></li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#"><i class="fi-widget"></i></a>
+              <ul class="dropdown">
+                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "Account", edit_user_registration_path %></li>
+              </ul>
+            </li>
           <% else %>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li class="divider"></li>
             <li><%= link_to "Sign in", new_user_session_path %></li>
           <% end %>
         </ul>
