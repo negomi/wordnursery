@@ -34,5 +34,6 @@ $(document).ready ->
 
     # Show word definitions
     $('.word a').click (event) ->
+        event.preventDefault()
         word = this.name
         $('#' + word + '_definitions').slideToggle()
