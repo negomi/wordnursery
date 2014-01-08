@@ -20,7 +20,8 @@ class UsersController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-      respond_with resource
+      flash[:notice] = resource.errors.full_messages
+      redirect_to :back
     end
   end
 end

@@ -172,10 +172,11 @@ input[type="password"]:focus {
 .notice {
     @include border-radius(0);
     background-color: $pink;
-    margin: 0 auto;
     display: none;
+    margin: 0 auto;
+    padding: 0 5px;
     @media #{$medium-up} {
         @include border-radius(10px);
-        max-width: 350px;
+        width: 50%;
     }
 }

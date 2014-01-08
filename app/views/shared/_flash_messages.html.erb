@@ -1,5 +1,7 @@
-<% flash.each do |key, msg| %>
-    <div class="notice">
-        <p><%= msg %></p>
-    </div>
-<% end %>
+<div class="notice">
+    <p>
+        <% flash.each do |key, msg| %>
+            <%= msg %><br>
+        <% end %>
+    </p>
+</div>
