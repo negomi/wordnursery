@@ -61,7 +61,7 @@
         <p>Show graduated words &darr;</p>
     <% end %>
     <!-- Button to clear graduated list -->
-    <%= link_to words_clear_graduated_path(@word), class: "button tiny", id: "clear-graduated", method: :delete, data: { confirm: "Delete all your graduated words?" } do %>
+    <%= link_to words_clear_graduated_path(@word), class: "button tiny hidden", id: "clear-graduated", method: :delete, data: { confirm: "Delete all your graduated words?" } do %>
         Clear graduated
     <% end %>
 </section>

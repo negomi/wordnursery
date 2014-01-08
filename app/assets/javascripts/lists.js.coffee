@@ -8,8 +8,8 @@ $(document).ready ->
     $graduatedLink = $('#show-graduated')
     $clearLink = $('#clear-graduated')
 
-    # Hide graduated words & clear link by default
-    $graduatedWords.add($clearLink).hide()
+    # Hide graduated words by default
+    $graduatedWords.hide()
 
     # Show graduated words on click
     $graduatedLink.click (event) ->
