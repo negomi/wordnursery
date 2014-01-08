@@ -3,10 +3,10 @@
 <%= render "shared/flash_messages" %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %><br />
+  <p><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %></p>
 
-  <p><%= f.label :password %><br />
+  <p><%= f.label :password %>
   <%= f.password_field :password %></p>
 
   <% if devise_mapping.rememberable? -%>
