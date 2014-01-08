@@ -28,15 +28,15 @@ table {
     margin: 0 auto 10px;
     width: 100%;
     .word-box {
-        width: 50%;
-        p {
+        p, h4 {
             margin-bottom: 0;
         }
         @media #{$medium-up} {
-            width: 60%;
+            width: 65%;
         }
     }
     .list-icons {
+        width: 100px;
         font-size: 2em;
         text-align: center;
         @media #{$medium-up} {
