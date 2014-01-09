@@ -42,11 +42,11 @@ body {
     padding: 20px 0;
     text-align: center;
     @media #{$medium-up} {
-        padding-bottom: 30px;
+        padding: 20px 0 30px;
     }
     @media #{$large-up} {
-        padding: 50px 0;
         @include border-radius(30px);
+        padding: 50px 0;
     }
 }
 
@@ -171,15 +171,12 @@ input[type="password"]:focus {
 // Notices
 
 .notice {
-    @include border-radius(0);
+    @include border-radius(10px);
     background-color: $pink;
     display: none;
     margin: 0 auto;
     padding: 0 5px;
-    @media #{$medium-up} {
-        @include border-radius(10px);
-        width: 50%;
-    }
+    text-align: center;
 }
 
 // Modal & icons
@@ -193,6 +190,7 @@ input[type="password"]:focus {
         &:hover {
             color: $white;
         }
+        margin: 0 5px;
     }
     @media #{$large-up} {
         margin-bottom: 50px;
