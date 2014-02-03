@@ -136,9 +136,12 @@ input[type="password"]:focus {
     @include button-theme($gray);
 }
 
-.button-blue, .button-blue:hover {
+.button-blue {
     color: $gray;
     @include button-theme($blue);
+    &:hover {
+        color: $white;
+    }
 }
 
 
@@ -172,12 +175,15 @@ input[type="password"]:focus {
 // Notices
 
 .notice {
-    @include border-radius(10px);
     background-color: $pink;
     display: none;
     margin: 0 auto;
     padding: 0 5px;
     text-align: center;
+    @media #{$medium-up} {
+        @include border-radius(10px);
+        max-width: 400px;
+    }
 }
 
 // Modal & icons
