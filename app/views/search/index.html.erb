@@ -1,3 +1,5 @@
+<%= render "shared/flash_messages" %>
+
 <section class="results">
     <% if @word.errors.any? %>
         <div class="results-buttons">
@@ -10,6 +12,7 @@
             <p><%= msg[1][0] %></p>
         <% end %>
     <% else %>
+
     	<div class="results-buttons">
     	    <%= form_for @word, method: :post, url: words_path, html: { class: "hidden-form" } do |f| %>
     	        <%= f.hidden_field :id %>
@@ -17,8 +20,6 @@
     	    <% end %>
             <%= render "shared/randomize" %>
     	</div>
-
-        <%= render "shared/flash_messages" %>
 
     	<h1 class="title"><%= @word.name %></h1>
     	<h2><%= @word.pronunciation %></h2>
